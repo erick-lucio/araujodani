@@ -40,3 +40,28 @@ button {
 button:hover {
     background-color: #0056b3;
 }
+
+
+main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.centered-div {
+    width: 80%;
+    margin: 20px auto;
+    border: 1px solid #ccc;
+    padding: 20px;
+    text-align: left;
+}
+.centered-div .item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+.centered-div .item input[type="checkbox"] {
+    margin-right: 10px;
+}
+.centered-div .confirm-button {
+    text-align: center;
+}
