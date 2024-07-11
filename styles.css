@@ -25,7 +25,6 @@ footer {
     position: fixed;
     width: 100%;
     bottom: 0;
-    margin-top: 45px;
 }
 
 button {
@@ -71,4 +70,8 @@ main {
     width: 80%;
     margin: 20px auto;
     margin-bottom: 46px;
+}
+
+#hiddenItem{
+    min-height: 20vh;
 }

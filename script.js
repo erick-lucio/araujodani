@@ -47,19 +47,22 @@ function displayPercentages(sumArray) {
     const sortedTemperamentNames = sortedData.map(data => data.name);
     const sortedPercentages = sortedData.map(data => data.percentage);
 
-   const ctx = document.getElementById('canvasidresult').getContext('2d');
+    const canvas = document.getElementById('canvasidresult');
+    // canvas.focus();
+
+    const ctx = canvas.getContext('2d');
     new Chart(ctx, {
         type: 'bar',
         data: {
             labels: sortedTemperamentNames,
-            datasets: sortedData.map((data, index) => ({
-                label: data.name,
-                data: [data.percentage],
-                backgroundColor: ['rgba(255, 99, 132, 0.2)', 'rgba(54, 162, 235, 0.2)', 'rgba(255, 206, 86, 0.2)', 'rgba(75, 192, 192, 0.2)'][index],
-                borderColor: ['rgba(255, 99, 132, 1)', 'rgba(54, 162, 235, 1)', 'rgba(255, 206, 86, 1)', 'rgba(75, 192, 192, 1)'][index],
+            datasets: [{
+                label: 'Temperamento ',
+                data: sortedPercentages,
+                backgroundColor: ['rgba(255, 99, 132, 0.2)', 'rgba(54, 162, 235, 0.2)', 'rgba(255, 206, 86, 0.2)', 'rgba(75, 192, 192, 0.2)'],
+                borderColor: ['rgba(255, 99, 132, 1)', 'rgba(54, 162, 235, 1)', 'rgba(255, 206, 86, 1)', 'rgba(75, 192, 192, 1)'],
                 borderWidth: 1,
                 barPercentage: 0.5
-            }))
+            }]
         },
         options: {
             scales: {
@@ -83,10 +86,11 @@ function displayPercentages(sumArray) {
             },
             plugins: {
                 legend: {
-                    display: true,
-                    position: 'top'
+                    display: false
                 }
             }
         }
     });
+
+    
 }
