@@ -1,3 +1,5 @@
+var myChart;
+
 document.getElementById('confirmButton').addEventListener('click', function() {
     const checkedItems = [];
     const itemsContainer = document.getElementById('itemsContainer');
@@ -49,9 +51,12 @@ function displayPercentages(sumArray) {
 
     const canvas = document.getElementById('canvasidresult');
     // canvas.focus();
+    if (myChart) {
+        myChart.destroy();
+    }
 
     const ctx = canvas.getContext('2d');
-    new Chart(ctx, {
+    myChart = new Chart(ctx, {
         type: 'bar',
         data: {
             labels: sortedTemperamentNames,
@@ -73,7 +78,7 @@ function displayPercentages(sumArray) {
             },
             animation: {
                 onComplete: function() {
-                    console.log('Animation complete');
+                    // console.log('Animation complete');
                 },
                 delay: function(context) {
                     let delay = 0;
