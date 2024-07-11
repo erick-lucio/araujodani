@@ -40,4 +40,53 @@ function displayPercentages(sumArray) {
 
     alert(resultMessage);
     console.log(resultMessage);
+
+    const sortedData = percentages.map((percentage, index) => ({ name: temperamentNames[index], percentage }))
+    .sort((a, b) => b.percentage - a.percentage);
+
+    const sortedTemperamentNames = sortedData.map(data => data.name);
+    const sortedPercentages = sortedData.map(data => data.percentage);
+
+   const ctx = document.getElementById('canvasidresult').getContext('2d');
+    new Chart(ctx, {
+        type: 'bar',
+        data: {
+            labels: sortedTemperamentNames,
+            datasets: sortedData.map((data, index) => ({
+                label: data.name,
+                data: [data.percentage],
+                backgroundColor: ['rgba(255, 99, 132, 0.2)', 'rgba(54, 162, 235, 0.2)', 'rgba(255, 206, 86, 0.2)', 'rgba(75, 192, 192, 0.2)'][index],
+                borderColor: ['rgba(255, 99, 132, 1)', 'rgba(54, 162, 235, 1)', 'rgba(255, 206, 86, 1)', 'rgba(75, 192, 192, 1)'][index],
+                borderWidth: 1,
+                barPercentage: 0.5
+            }))
+        },
+        options: {
+            scales: {
+                y: {
+                    beginAtZero: true,
+                    max: 100
+                }
+            },
+            animation: {
+                onComplete: function() {
+                    console.log('Animation complete');
+                },
+                delay: function(context) {
+                    let delay = 0;
+                    if (context.type === 'data' && context.mode === 'default' && !context.dropped) {
+                        delay = context.dataIndex * 300 + context.datasetIndex * 100;
+                        context.dropped = true;
+                    }
+                    return delay;
+                }
+            },
+            plugins: {
+                legend: {
+                    display: true,
+                    position: 'top'
+                }
+            }
+        }
+    });
 }

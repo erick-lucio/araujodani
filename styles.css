@@ -25,6 +25,7 @@ footer {
     position: fixed;
     width: 100%;
     bottom: 0;
+    margin-top: 45px;
 }
 
 button {
@@ -64,4 +65,10 @@ main {
 }
 .centered-div .confirm-button {
     text-align: center;
+}
+
+#canvasContainer {
+    width: 80%;
+    margin: 20px auto;
+    margin-bottom: 46px;
 }
