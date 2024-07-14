@@ -65,7 +65,7 @@ function displayPercentages(sumArray) {
     const sortedTemperamentNames = sortedData.map(data => data.name);
     const sortedPercentages = sortedData.map(data => data.percentage);
     
-    displayTemperaments(sortedTemperamentNames)
+    displayTemperaments(sortedTemperamentNames, sortedPercentages)
     // const canvas = document.getElementById('canvasidresult');
     // // canvas.focus();
     // if (myChart) {
@@ -128,7 +128,7 @@ function hidePopup() {
 }
 
 
-function displayTemperaments(sortedTemperamentNames) {
+function displayTemperaments(sortedTemperamentNames, sortedPercentages) {
     
     const canvasContainer = document.getElementById('canvasContainer');
     canvasContainer.innerHTML = ''; // Clear any existing content
@@ -136,7 +136,7 @@ function displayTemperaments(sortedTemperamentNames) {
     sortedTemperamentNames.forEach((name, index) => {
         const item = document.createElement('div');
         item.className = 'temperament-item';
-        item.innerHTML = `<strong>${index + 1}º ${name}</strong><br><p>${temperamentDescriptions[name]}</p>`;
+        item.innerHTML = `<strong>${index + 1}º ${name}      ${Math.round(sortedPercentages[index])}%</strong><br><p>${temperamentDescriptions[name]}</p>`;
         canvasContainer.appendChild(item);
     });
 }

@@ -71,12 +71,15 @@ main {
     margin: 20px auto;
     margin-bottom: 46px;
     height: 60%;
+    max-height: 60%;
+    overflow-y: auto;
 }
 #canvasContainerTitle{
     width: 80%;
     margin: 20px auto;
     margin-bottom: 46px;
     height: 10%;
+    white-space: nowrap; /* Prevents text from breaking */
 }
 #hiddenItem{
     min-height: 20vh;
@@ -172,8 +175,5 @@ main {
     }
     #canvasContainerTitle{
         width: 100%;
-        margin: 20px auto;
-        margin-bottom: 6px;
-        height: 6%;
     }
 }
