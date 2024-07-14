@@ -162,4 +162,17 @@ main {
     #canvasContainerTitle h2{
         font-size: 32px !important;
     }
+    .temperament-item {
+        padding: 5px;
+    }
+    .popup {
+        top: 50%;
+        height: 100%;
+    }
+    #canvasContainerTitle{
+        width: 100%;
+        margin: 20px auto;
+        margin-bottom: 6px;
+        height: 6%;
+    }
 }
