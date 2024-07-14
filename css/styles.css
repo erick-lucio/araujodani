@@ -94,6 +94,7 @@ main {
     z-index: 1000;
     height: 80%;
     width: 80%;
+    border-radius: 10px;
 }
 .popup-overlay {
     display: none;
@@ -167,7 +168,7 @@ main {
     }
     .popup {
         top: 50%;
-        height: 95%;
+        height: 90%;
     }
     #canvasContainerTitle{
         width: 100%;
