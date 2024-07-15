@@ -134,6 +134,10 @@ main {
     font-size: 1rem;
     width: 50%;
 }
+#pageTitle{
+   color: #062d61; 
+   text-shadow: 2px 2px 4px white;
+}
 
 @media (max-width: 760px) {
     #popup {
